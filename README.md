@@ -1,124 +1,85 @@
-# [English](English.md) [中文](README.md)
-
-> **本仓库是 [sssdex](https://github.com/sssdex) 的改版 fork（分支 `archive-shelf`）**
-> 在阅读R（[refgd/legado](https://github.com/refgd/legado)，基线 `accef33`）之上新增「档案式书架」：
-> 3D 立体书架 + 档案式书目 + 左侧分组抽屉，内置思源宋体、循环滑动、触感反馈；
-> 设置里可一键关回原版书架。包名 `com.legado.archive`（独立共存）、默认简体中文、桌面名 **阅读S**、
-> 默认图标换成深灰底白书（「切换图标」列表里也加了 `icon8`）。
->
-> 改动说明 / 构建方式 / 签名 / 已知限制见 **[ARCHIVE-SHELF.md](ARCHIVE-SHELF.md)**；
-> 安装包见 [Releases](https://github.com/sssdex/legado/releases)（APK 不进仓库）。
-
-<a href="https://jb.gg/OpenSourceSupport" target="_blank">
-<img width="24" height="24" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg?_gl=1*135yekd*_ga*OTY4Mjg4NDYzLjE2Mzk0NTE3MzQ.*_ga_9J976DJZ68*MTY2OTE2MzM5Ny4xMy4wLjE2NjkxNjMzOTcuNjAuMC4w&_ga=2.257292110.451256242.1669085120-968288463.1639451734" alt="idea"/>
-</a>
-
 <div align="center">
-<img width="125" height="125" src="docs/archive_icon.svg" alt="阅读R"/>
-<br>
-阅读R
-<br>
-阅读R继承自 Rimchars 维护的 Legado 分支，并延续 <a href="https://github.com/gedoor/legado" target="_blank">Legado</a> 的开源阅读体验，在其基础上继续增强界面、AI、EPUB、漫画、视频和主题能力。
+  <img src="docs/archive-shelf/icon.png" width="104" height="104" alt="阅读S">
+  <h1>阅读S · 档案式书架</h1>
+  <p>给「阅读R」加了一页<b>档案式书架</b>：3D 立体书架 + 档案式书目 + 分组抽屉</p>
+  <p>
+    <a href="https://github.com/sssdex/legado/releases/latest"><b>⬇ 下载 APK</b></a>
+    &nbsp;·&nbsp;
+    <a href="ARCHIVE-SHELF.md">改动与构建说明</a>
+    &nbsp;·&nbsp;
+    <a href="README-UPSTREAM.md">上游原版说明</a>
+  </p>
+  <sub>包名 <code>com.legado.archive</code> · 与官方阅读R 共存 · 默认简体中文 · 桌面名「阅读S」</sub>
 </div>
 
-## 阅读R特色
-- 重做主题管理，支持日间/夜间主题、背景图、界面颜色、主题导入导出和云端同步。
-- 深化 EPUB 原生阅读，持续补全图片、注解、分页缓存、复杂样式和大文件导入体验。
-- 增强 AI 助手，支持工具调用、书源搜索、书籍与章节读取、阅读记录查询和联网搜索。
-- 优化发现页与订阅源页，支持统一源选择、订阅内容搜索、纯 URL 订阅源和合并入口。
-- 改进漫画和视频体验，强化漫画阅读控件、视频直达播放页和详情/目录信息展示。
+<br>
 
-## 版本说明
-- 测试版(beta)：包名与原版相同，可覆盖更新，版本更新频繁
-- 正式版(plus)：新的共存包名，安装后是一个新软件，不会覆盖原版，每到一个稳定阶段进行一次更新
-#### 找不到下载地址可以去这里 [下载软件](https://github.com/refgd/legado/releases)
+![档案式书架](docs/archive-shelf/01-shelf-light.png)
 
-[![](https://img.shields.io/badge/-Contents:-696969.svg)](#contents) [![](https://img.shields.io/badge/-Function-F5F5F5.svg)](#Function-主要功能-) [![](https://img.shields.io/badge/-Community-F5F5F5.svg)](#Community-交流社区-) [![](https://img.shields.io/badge/-API-F5F5F5.svg)](#API-) [![](https://img.shields.io/badge/-Other-F5F5F5.svg)](#Other-其他-) [![](https://img.shields.io/badge/-Grateful-F5F5F5.svg)](#Grateful-感谢-) [![](https://img.shields.io/badge/-Interface-F5F5F5.svg)](#Interface-界面-)
+<br>
 
->新用户？
->
->软件不提供内容，需要您自己手动添加，例如导入书源等。
->看看 [官方帮助文档](https://www.yuque.com/legado/wiki)，也许里面就有你要的答案。
+## 我加的东西
 
-# Function-主要功能 [![](https://img.shields.io/badge/-Function-F5F5F5.svg)](#Function-主要功能-)
-[English](English.md)
+书架页重做成「档案」：上面一排立体的书，下面一份档案式书目，分组收进左侧抽屉。设置里留了开关，关掉就是原来的书架。
 
-<details><summary>中文</summary>
-1.自定义书源，自己设置规则，抓取网页数据，规则简单易懂，软件内有规则说明。<br>
-2.列表书架，网格书架自由切换。<br>
-3.书源规则支持搜索及发现，所有找书看书功能全部自定义，找书更方便。<br>
-4.订阅内容,可以订阅想看的任何内容,看你想看<br>
-5.支持替换净化，去除广告替换内容很方便。<br>
-6.支持本地TXT、EPUB阅读，手动浏览，智能扫描。<br>
-7.支持高度自定义阅读界面，切换字体、颜色、背景、行距、段距、加粗、简繁转换等。<br>
-8.支持多种翻页模式，覆盖、仿真、滑动、滚动等。<br>
-9.软件开源，持续优化，无广告。
-</details>
+| 新增 | 说明 |
+| --- | --- |
+| **立体书架** | 平行投影（不是 3D 透视）：书脊挨着书脊，当前这本被「抽出」上浮、封面朝右上铺开，远处的书脊下坠成一条导轨。封面 107dp、书脊 14dp，整条书架约 365dp 高 |
+| **档案式书目** | `SHELF / CATALOGUE` 标题 + 排序按钮，下面是 56×76 封面缩略 + `档案 / 001` + 书名 + 作者 + 阅读进度 |
+| **分组抽屉** | 点左上角分组图标（或标题里的「全部 ▾」）从左边滑出，`01 全部 / 02 分组名 …`，底部是分组管理。面板是实心纸色，不会透出底下的书架和壁纸 |
+| **可折叠** | 「收起书架」只留书目，按钮变「展开书架」 |
+| **循环滑动** | 滑到头继续同方向滑会无缝接回另一端，反过来也一样 |
+| **轻振** | 每滑过一本书振一次：15ms / 振幅 150 |
+| **内置宋体** | 书名、作者、书脊竖排字都用内置的思源宋体（SIL OFL 1.1）；字号 书名 10.6sp / 作者 8.4sp / 书脊 8.2sp |
+| **不透明纸面** | 主题背景色是半透明（壁纸主题）时，纸面、书脊、顶面、抽屉面板都会先合成到白/黑底再画，壁纸不会透进书页，相邻书的字也不会互相叠印 |
+| **档案编号** | 封面上 `NO.001`、下面 `档案 / 001`，**只在当前抽出来的那本书上显示**（其余书被右邻书脊压住） |
+| **书架数量 1–500** | 立体书架展示前 N 本（默认 12），封面按焦点窗口按需加载 + LRU 缓存；下面的书目始终是全部书 |
+| **设置开关** | 我的 → 界面设置 →「档案式书架」，关掉立即回到原版书架，数据与设置都不动 |
+| **新应用名与新图标** | 桌面名「阅读S」；默认图标换成深灰底白书，并且作为 `icon8` 也加进了原来的「切换图标」列表 |
 
-<a href="#readme">
-    <img src="https://img.shields.io/badge/-返回顶部-orange.svg" alt="#" align="right">
-</a>
+<br>
 
-# Community-交流社区 [![](https://img.shields.io/badge/-Community-F5F5F5.svg)](#Community-交流社区-)
+## 长什么样
 
-#### Telegram
-[![Telegram-channel](https://img.shields.io/badge/Σ_Telegram-%E9%A2%91%E9%81%93-blue)](https://t.me/yuedur)
+| 浅色 · 立体书架 | 分组抽屉 |
+| --- | --- |
+| <img src="docs/archive-shelf/01-shelf-light.png" width="300"> | <img src="docs/archive-shelf/02-drawer.png" width="300"> |
 
+| 夜间模式 | 半透明壁纸主题（纸面仍不透字） |
+| --- | --- |
+| <img src="docs/archive-shelf/03-shelf-dark.png" width="300"> | <img src="docs/archive-shelf/04-wallpaper.png" width="300"> |
 
-<a href="#readme">
-    <img src="https://img.shields.io/badge/-返回顶部-orange.svg" alt="#" align="right">
-</a>
+| 壁纸主题下的抽屉（是实心的） | 桌面图标与名称 |
+| --- | --- |
+| <img src="docs/archive-shelf/05-wallpaper-drawer.png" width="300"> | <img src="docs/archive-shelf/07-launcher.png" width="300"> |
 
-# API [![](https://img.shields.io/badge/-API-F5F5F5.svg)](#API-)
-* 阅读3.0 提供了2种方式的API：`Web方式`和`Content Provider方式`。您可以在[这里](api.md)根据需要自行调用。 
-* 可通过url唤起阅读进行一键导入,url格式: legado://import/{path}?src={url}
-* path类型: bookSource,rssSource,replaceRule,textTocRule,httpTTS,theme,readConfig,dictRule,[addToBookshelf](/app/src/main/java/io/legado/app/ui/association/AddToBookshelfDialog.kt)
-* path类型解释: 书源,订阅源,替换规则,本地txt小说目录规则,在线朗读引擎,主题,阅读排版,添加到书架
+<br>
 
-<a href="#readme">
-    <img src="https://img.shields.io/badge/-返回顶部-orange.svg" alt="#" align="right">
-</a>
+## 最新一版修了什么（v6 · 3.26.112206）
 
-# Other-其他 [![](https://img.shields.io/badge/-Other-F5F5F5.svg)](#Other-其他-)
-##### 免责声明
-https://gedoor.github.io/Disclaimer
+1. **分组抽屉不再透明**：浅色 + 壁纸主题下原来能看到底下的书架和壁纸、字叠在一起。现在书架和抽屉共用同一套不透明纸色（`ArchivePalette.paper()`），浅色深色都是实心。
+2. **默认图标换成深灰底白书**：自适应图标的前景缩进了安全区（约 66%），圆角/圆形遮罩都不会裁到书角；另生成了 5 个密度的传统图标。原「切换图标」保留，新图标作为第 8 项 `icon8` 加入。
 
-##### 阅读3.0
-* [书源规则](https://mgz0227.github.io/The-tutorial-of-Legado/)
-* [更新日志](/app/src/main/assets/updateLog.md)
-* [帮助文档](/app/src/main/assets/web/help/md/appHelp.md)
-* [web端书架](https://github.com/gedoor/legado_web_bookshelf)
-* [web端源编辑](https://github.com/gedoor/legado_web_source_editor)
+   <img src="docs/archive-shelf/06-icons.png" width="300" alt="切换图标列表">
 
-<a href="#readme">
-    <img src="https://img.shields.io/badge/-返回顶部-orange.svg" alt="#" align="right">
-</a>
+3. **应用名改为「阅读S」**：桌面、应用信息、最近任务、通知栏一致。
 
-# Grateful-感谢 [![](https://img.shields.io/badge/-Grateful-F5F5F5.svg)](#Grateful-感谢-)
-> * org.jsoup:jsoup
-> * cn.wanghaomiao:JsoupXpath
-> * com.jayway.jsonpath:json-path
-> * com.github.gedoor:rhino-android
-> * com.squareup.okhttp3:okhttp
-> * com.github.bumptech.glide:glide
-> * org.nanohttpd:nanohttpd
-> * org.nanohttpd:nanohttpd-websocket
-> * cn.bingoogolapple:bga-qrcode-zxing
-> * com.jaredrummler:colorpicker
-> * org.apache.commons:commons-text
-> * io.noties.markwon:core
-> * io.noties.markwon:image-glide
-> * com.hankcs:hanlp
-> * com.positiondev.epublib:epublib-core
-> * com.github.Moriafly:LyricViewX
-> * io.github.rosemoe:editor
-<a href="#readme">
-    <img src="https://img.shields.io/badge/-返回顶部-orange.svg" alt="#" align="right">
-</a>
+<br>
 
-# Interface-界面 [![](https://img.shields.io/badge/-Interface-F5F5F5.svg)](#Interface-界面-)
-<img src="static/1.png" width="270"><img src="static/2.png" width="270"><img src="static/3.png" width="270"><img src="static/4.png" width="270">
+## 怎么用
 
-<a href="#readme">
-    <img src="https://img.shields.io/badge/-返回顶部-orange.svg" alt="#" align="right">
-</a>
+- **开关**：我的 → 界面设置 →「档案式书架」（默认开启）。同一页的「书架数量」可调 1–500，改完返回书架立即生效。
+- **切换图标**：同一页顶部「切换图标」，`iconMain` 是默认的新图标，`icon8` 也是它（方便和其它图标来回切）。
+- **安装**：包名 `com.legado.archive`，不会覆盖官方阅读R / 阅读；数据独立，第一次装上书架是空的，到「我的 → 备份与恢复」导入自己的备份即可。
+
+<br>
+
+## 构建
+
+构建方式、签名（自签 keystore，只能覆盖本改版）、字体授权和已知限制都写在 **[ARCHIVE-SHELF.md](ARCHIVE-SHELF.md)**。
+
+<br>
+
+---
+
+<sub>本仓库 fork 自 [refgd/legado](https://github.com/refgd/legado)（阅读R，基线 `accef33`）。除书架页、应用名和默认图标外没有改动上游功能，数据库结构、书源、阅读器、备份格式都保持原样。上游完整说明见 [README-UPSTREAM.md](README-UPSTREAM.md) / [English.md](English.md)。</sub>
