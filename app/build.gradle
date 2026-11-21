@@ -52,7 +52,8 @@ android {
         }
     }
     defaultConfig {
-        applicationId "io.legado.app"
+        // 档案式书架共存版：独立的包名，可以和官方 阅读R / 原版阅读 同时安装
+        applicationId "com.legado.archive"
         minSdk 21
         targetSdk 36
         versionCode buildVersionCode
@@ -88,8 +89,7 @@ android {
             if (project.hasProperty("RELEASE_STORE_FILE")) {
                 signingConfig signingConfigs.myConfig
             }
-            applicationIdSuffix '.refgd'
-            manifestPlaceholders.put("app_name", "@string/app_name")
+            manifestPlaceholders.put("app_name", "@string/app_name_archive")
 
             minifyEnabled false
             shrinkResources = false
@@ -99,9 +99,8 @@ android {
             if (project.hasProperty("RELEASE_STORE_FILE")) {
                 signingConfig signingConfigs.myConfig
             }
-            applicationIdSuffix '.refgd'
             versionNameSuffix '.beta'
-            manifestPlaceholders.put("app_name", "@string/app_name")
+            manifestPlaceholders.put("app_name", "@string/app_name_archive")
 
             matchingFallbacks = ['release']
 

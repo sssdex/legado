@@ -37,6 +37,22 @@
 
     <io.legado.app.lib.prefs.SwitchPreference
         android:defaultValue="true"
+        android:key="archiveShelfEnabled"
+        android:summary="@string/archive_shelf_summary"
+        android:title="@string/archive_shelf"
+        app:iconSpaceReserved="false" />
+
+    <io.legado.app.lib.prefs.SeekBarPreference
+        android:clickable="false"
+        android:defaultValue="12"
+        android:key="archiveShelfVisibleCount"
+        android:title="@string/archive_shelf_visible_count"
+        app:MaxValue="500"
+        app:MinValue="1"
+        app:iconSpaceReserved="false" />
+
+    <io.legado.app.lib.prefs.SwitchPreference
+        android:defaultValue="true"
         android:key="showReadRecord"
         android:title="@string/show_read_record"
         app:iconSpaceReserved="false" />

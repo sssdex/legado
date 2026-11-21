@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--App-->
-    <string name="app_name">阅读R</string>
+    <string name="app_name">阅读S</string>
+    <string name="app_name_archive" translatable="false">阅读S</string>
     <string name="app_name_a">阅读R·A</string>
     <string name="app_name_s" translatable="false">阅读R Plus</string>
     <string name="receiving_shared_label">阅读R·搜索</string>
@@ -47,6 +48,12 @@
     <string name="enable">Enable</string>
     <string name="replace_purify_search">Search Replacement</string>
     <string name="bookshelf">Bookshelf</string>
+    <string name="archive_catalogue">Catalogue</string>
+    <string name="archive_shelf_collapse">Collapse</string>
+    <string name="archive_shelf_expand">Expand</string>
+    <string name="archive_shelf">Archive shelf</string>
+    <string name="archive_shelf_summary">3D shelf plus an archive-style catalogue page. Turn off to use the original bookshelf</string>
+    <string name="archive_shelf_visible_count">Books on shelf</string>
     <string name="favorites">Favorites</string>
     <string name="favorite">Favorite</string>
     <string name="in_favorites">in Favorites</string>

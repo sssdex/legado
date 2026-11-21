@@ -192,6 +192,8 @@ class ThemeConfigFragment : PreferenceFragment(),
             PreferKey.immNavigationBar -> recreateActivities()
             PreferKey.moveSearchToBookshelf -> postEvent(key, getPrefBoolean(key))
             PreferKey.showReadRecord -> postEvent(EventBus.NOTIFY_MAIN, true)
+            PreferKey.archiveShelfEnabled -> recreateActivities()
+            PreferKey.archiveShelfVisibleCount -> postEvent(EventBus.BOOKSHELF_REFRESH, "")
             PreferKey.cPrimary,
             PreferKey.cAccent,
             PreferKey.cBackground,

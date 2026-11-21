@@ -275,6 +275,20 @@ object AppConfig : SharedPreferences.OnSharedPreferenceChangeListener {
             appCtx.putPrefInt(PreferKey.bookshelfLayout, value)
         }
 
+    /** 档案式书架（立体书架 + 书目）开关，关掉回到原来的书架页 */
+    var archiveShelfEnabled: Boolean
+        get() = appCtx.getPrefBoolean(PreferKey.archiveShelfEnabled, true)
+        set(value) {
+            appCtx.putPrefBoolean(PreferKey.archiveShelfEnabled, value)
+        }
+
+    /** 立体书架上最多摆多少本 */
+    var archiveShelfVisibleCount: Int
+        get() = appCtx.getPrefInt(PreferKey.archiveShelfVisibleCount, 12).coerceIn(1, 500)
+        set(value) {
+            appCtx.putPrefInt(PreferKey.archiveShelfVisibleCount, value.coerceIn(1, 500))
+        }
+
     var saveTabPosition: Int
         get() = appCtx.getPrefInt(PreferKey.saveTabPosition, 0)
         set(value) {

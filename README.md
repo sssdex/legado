@@ -1,5 +1,14 @@
 # [English](English.md) [中文](README.md)
 
+> **本仓库是 [sssdex](https://github.com/sssdex) 的改版 fork（分支 `archive-shelf`）**
+> 在阅读R（[refgd/legado](https://github.com/refgd/legado)，基线 `accef33`）之上新增「档案式书架」：
+> 3D 立体书架 + 档案式书目 + 左侧分组抽屉，内置思源宋体、循环滑动、触感反馈；
+> 设置里可一键关回原版书架。包名 `com.legado.archive`（独立共存）、默认简体中文、桌面名 **阅读S**、
+> 默认图标换成深灰底白书（「切换图标」列表里也加了 `icon8`）。
+>
+> 改动说明 / 构建方式 / 签名 / 已知限制见 **[ARCHIVE-SHELF.md](ARCHIVE-SHELF.md)**；
+> 安装包见 [Releases](https://github.com/sssdex/legado/releases)（APK 不进仓库）。
+
 <a href="https://jb.gg/OpenSourceSupport" target="_blank">
 <img width="24" height="24" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg?_gl=1*135yekd*_ga*OTY4Mjg4NDYzLjE2Mzk0NTE3MzQ.*_ga_9J976DJZ68*MTY2OTE2MzM5Ny4xMy4wLjE2NjkxNjMzOTcuNjAuMC4w&_ga=2.257292110.451256242.1669085120-968288463.1639451734" alt="idea"/>
 </a>

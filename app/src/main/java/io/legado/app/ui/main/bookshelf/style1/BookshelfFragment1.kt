@@ -155,6 +155,7 @@ class BookshelfFragment1() : BaseBookshelfFragment(R.layout.fragment_bookshelf1)
 
     private fun selectSavedGroup() {
         binding.viewPagerBookshelf.post {
+            if (!isAdded) return@post
             if (primaryGroups.isEmpty()) {
                 binding.tabLayout.submitItems(emptyList(), -1)
                 binding.btnSecondaryTagsExpand.visibility = View.GONE
@@ -180,6 +181,7 @@ class BookshelfFragment1() : BaseBookshelfFragment(R.layout.fragment_bookshelf1)
     }
 
     private fun updateHeaderTitle() {
+        if (!isAdded) return
         binding.tvBookshelfTitle.text = selectedPrimaryGroup?.groupName ?: getString(R.string.bookshelf)
         binding.tvBookshelfTitle.applyUiTitleTypeface(requireContext())
     }
@@ -275,6 +277,7 @@ class BookshelfFragment1() : BaseBookshelfFragment(R.layout.fragment_bookshelf1)
 
     private fun switchToPrimaryGroup(index: Int) {
         if (index !in primaryGroups.indices) return
+        if (!isAdded) return
         val lastSecondaryGroupId = selectedSecondaryGroupId
         currentGroupIndex = index
         AppConfig.saveTabPosition = index

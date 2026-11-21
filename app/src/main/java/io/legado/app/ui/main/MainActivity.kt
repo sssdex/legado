@@ -75,6 +75,7 @@ import io.legado.app.ui.association.ImportBookSourceDialog
 import io.legado.app.ui.association.ImportReplaceRuleDialog
 import io.legado.app.ui.association.ImportRssSourceDialog
 import io.legado.app.ui.main.bookshelf.BaseBookshelfFragment
+import io.legado.app.ui.main.bookshelf.archive.ArchiveBookshelfFragment
 import io.legado.app.ui.main.bookshelf.style1.BookshelfFragment1
 import io.legado.app.ui.main.bookshelf.style2.BookshelfFragment2
 import io.legado.app.ui.main.ai.AiChatActivity
@@ -122,6 +123,7 @@ class MainActivity : VMBaseActivity<ActivityMainBinding, MainViewModel>(),
     private val idBookshelf = 0
     private val idBookshelf1 = 11
     private val idBookshelf2 = 12
+    private val idBookshelfArchive = 13
     private val idExplore = 1
     private val idRss = 2
     private val idReadRecord = 3
@@ -269,6 +271,11 @@ class MainActivity : VMBaseActivity<ActivityMainBinding, MainViewModel>(),
                     return@addCallback
                 }
             }
+            (fragmentMap[getFragmentId(0)] as? ArchiveBookshelfFragment)?.let {
+                if (it.back()) {
+                    return@addCallback
+                }
+            }
             if (System.currentTimeMillis() - exitTime > EXIT_INTERVAL) {
                 toastOnUi(R.string.double_click_exit)
                 exitTime = System.currentTimeMillis()
@@ -319,6 +326,29 @@ class MainActivity : VMBaseActivity<ActivityMainBinding, MainViewModel>(),
         if (isSidebarMode()) {
             updateSideGoalHeader()
         }
+        refreshBookshelfFragmentIfNeeded()
+    }
+
+    /** 设置里切换「档案式书架」后，回到主界面时按需重建书架页 */
+    private fun refreshBookshelfFragmentIfNeeded() {
+        // 延后一点，让 LiveData 重新投递等挂起的 post 先跑完，避免在书架页刚收到数据时把它拆掉
+        binding.root.postDelayed({
+            if (isFinishing || isDestroyed) return@postDelayed
+            val expected = getFragmentId(0)
+            val actual = fragmentMap[idBookshelf1]
+                ?: fragmentMap[idBookshelf2]
+                ?: fragmentMap[idBookshelfArchive]
+            val matches = when (expected) {
+                idBookshelf1 -> actual is BookshelfFragment1
+                idBookshelf2 -> actual is BookshelfFragment2
+                idBookshelfArchive -> actual is ArchiveBookshelfFragment
+                else -> true
+            }
+            if (!matches) {
+                @Suppress("DEPRECATION")
+                (binding.viewPagerMain.adapter as? TabFragmentPageAdapter)?.notifyDataSetChanged()
+            }
+        }, 400)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -811,6 +841,7 @@ class MainActivity : VMBaseActivity<ActivityMainBinding, MainViewModel>(),
             when (val fragment = fragmentMap[getFragmentId(0)]) {
                 is BookshelfFragment1 -> fragment.switchToGroupId(group.groupId)
                 is BookshelfFragment2 -> fragment.switchToGroupId(group.groupId)
+                is ArchiveBookshelfFragment -> fragment.switchToGroupId(group.groupId)
             }
         }
     }
@@ -1868,7 +1899,11 @@ class MainActivity : VMBaseActivity<ActivityMainBinding, MainViewModel>(),
     private fun getFragmentId(position: Int): Int {
         val id = realPositions[position]
         if (id == idBookshelf) {
-            return if (AppConfig.bookGroupStyle == 1) idBookshelf2 else idBookshelf1
+            return when {
+                AppConfig.archiveShelfEnabled -> idBookshelfArchive
+                AppConfig.bookGroupStyle == 1 -> idBookshelf2
+                else -> idBookshelf1
+            }
         }
         return id
     }
@@ -1898,6 +1933,7 @@ class MainActivity : VMBaseActivity<ActivityMainBinding, MainViewModel>(),
             val fragmentId = getId(position)
             if ((fragmentId == idBookshelf1 && any is BookshelfFragment1)
                 || (fragmentId == idBookshelf2 && any is BookshelfFragment2)
+                || (fragmentId == idBookshelfArchive && any is ArchiveBookshelfFragment)
                 || (fragmentId == idExplore && any is ExploreFragment)
                 || (fragmentId == idRss && any is RssFragment)
                 || (fragmentId == idReadRecord && any is ReadRecordFragment)
@@ -1912,6 +1948,7 @@ class MainActivity : VMBaseActivity<ActivityMainBinding, MainViewModel>(),
             return when (getId(position)) {
                 idBookshelf1 -> BookshelfFragment1(position)
                 idBookshelf2 -> BookshelfFragment2(position)
+                idBookshelfArchive -> ArchiveBookshelfFragment(position)
                 idExplore -> ExploreFragment(position)
                 idRss -> RssFragment(position)
                 idReadRecord -> ReadRecordFragment(position)

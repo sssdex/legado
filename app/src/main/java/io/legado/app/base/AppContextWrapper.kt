@@ -79,7 +79,9 @@ object AppContextWrapper {
             "zh" -> Locale.SIMPLIFIED_CHINESE
             "tw" -> Locale.TRADITIONAL_CHINESE
             "en" -> Locale.ENGLISH
-            else -> getSystemLocale()
+            "auto" -> getSystemLocale()
+            // 未选择过语言时默认简体中文（这个改版是中文向的）
+            else -> Locale.SIMPLIFIED_CHINESE
         }
     }
 

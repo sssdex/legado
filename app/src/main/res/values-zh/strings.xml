@@ -1,6 +1,7 @@
 <resources>
     <!--App-->
-    <string name="app_name">阅读R</string>
+    <string name="app_name">阅读S</string>
+    <string name="app_name_archive" translatable="false">阅读S</string>
     <string name="app_name_a">阅读R·A</string>
     <string name="app_name_s">阅读R·Plus</string>
     <string name="receiving_shared_label">阅读R·搜索</string>
@@ -46,6 +47,12 @@
     <string name="enable">启用</string>
     <string name="replace_purify_search">替换净化-搜索</string>
     <string name="bookshelf">书架</string>
+    <string name="archive_catalogue">书目</string>
+    <string name="archive_shelf_collapse">收起书架</string>
+    <string name="archive_shelf_expand">展开书架</string>
+    <string name="archive_shelf">档案式书架</string>
+    <string name="archive_shelf_summary">立体书架 + 档案式书目页。关闭后恢复原来的书架页面</string>
+    <string name="archive_shelf_visible_count">书架数量</string>
     <string name="favorites">收藏夹</string>
     <string name="favorite">收藏</string>
     <string name="in_favorites">已收藏</string>
