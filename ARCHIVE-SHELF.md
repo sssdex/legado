@@ -1,9 +1,13 @@
 # 阅读S · 档案式立体书架（sssdex/legado fork）
 
 本仓库是 **[refgd/legado](https://github.com/refgd/legado)（阅读R）** 的一个改版 fork，
-在书架页新增了参考 [AzukiPann/AzukiReader](https://github.com/AzukiPann/AzukiReader) 的「档案式书架」：
-上方是 3D 立体书架，下方是 `SHELF / CATALOGUE` 档案式书目，分组收进左侧抽屉。
+在书架页新增了「档案式书架」：上方是 3D 立体书架，下方是 `SHELF / CATALOGUE` 档案式书目，分组收进左侧抽屉。
 设置里留了开关，关掉就完全回到改动前的原版书架，两者共用同一套书籍数据。
+
+书架这套观感来自 [Wenku8_Flutter](https://github.com/P5UEDGK/Wenku8_Flutter)（[P5UEDGK](https://github.com/P5UEDGK)）的立体书架，
+几何与绘制顺序照 [AzukiPann/AzukiReader](https://github.com/AzukiPann/AzukiReader)（[AzukiPann](https://github.com/AzukiPann)）的 MD3 / Compose 实现移植，
+致谢与「这个改版到底改了多少」见第七节。
+
 
 - 基线：`refgd/legado` 分支 `own`，commit `accef33`
 - 分支：`archive-shelf`
@@ -120,8 +124,31 @@ gradle :app:assembleRelease -PskipVitalLint=true \
 
 ---
 
-## 七、与上游的关系
+## 七、与上游的关系、定位与致谢
 
-- 只动书架页（新增 `ui/main/bookshelf/archive/` 与对应布局/字符串/设置项），阅读器、书源、备份格式、数据库结构（Room 版本不变）均未改。
+**范围**
+
+- 只动书架首页（新增 `ui/main/bookshelf/archive/` 与对应布局/字符串/设置项），外加应用名与默认图标；
+  阅读器、书源、订阅、发现页、备份格式、数据库结构（Room 版本不变）均未改。
 - 上游原版功能与本改版可以同时装在手机上，数据各自独立（`com.legado.archive` vs `io.legado.app`）。
 - 未向上游提 PR；本分支仅用于发布改版。
+
+**定位**
+
+- 这一版**不是** [AzukiReader](https://github.com/AzukiPann/AzukiReader) 那样的大规模改动。AzukiReader 是基于 MD3 重做的
+  整包、面向作者自己的使用需求开发；这里只是把它的立体书架搬进阅读R 的书架页，其余保持阅读R 原样。
+- 出发点很简单：喜欢阅读R 的风格，功能也够用，不想为了一个书架换掉整个 App。
+  所以它适合「想要 Wenku8_Flutter 那套立体书架、又已经习惯阅读R」的人。
+- **维护**：受限于个人能力，未来很可能不再维护，阅读R 上游改动带来的适配问题不一定会跟。
+  代码、patch 和思路都在仓库里，欢迎自行修改与打包。
+
+**致谢**
+
+| 项目 | 作者 | 这里用到了什么 |
+| --- | --- | --- |
+| [refgd/legado](https://github.com/refgd/legado)（阅读R） | [refgd](https://github.com/refgd) / Rimchars | 整个 App 的基线；本改版只在它的书架页上做加法 |
+| [Wenku8_Flutter](https://github.com/P5UEDGK/Wenku8_Flutter) | [P5UEDGK](https://github.com/P5UEDGK) | 立体书架这套设计的源头：书脊并排、焦点书抽出上浮、封面朝右上铺开、书目与分组形态 |
+| [AzukiReader](https://github.com/AzukiPann/AzukiReader) | [AzukiPann](https://github.com/AzukiPann) | 把 Wenku8 的立体书架做成 MD3 / Compose 版本；本改版的投影常数（0.66 / -0.30）、绘制顺序（自左向右）、循环与抽出权重均照它移植到 Views + Canvas |
+
+感谢三位作者开源。这个改版若有做得不好的地方，是移植的问题，不是这些上游项目的问题。
+

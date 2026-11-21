@@ -10,6 +10,8 @@
     <a href="README-UPSTREAM.md">上游原版说明</a>
   </p>
   <sub>包名 <code>com.legado.archive</code> · 与官方阅读R 共存 · 默认简体中文 · 桌面名「阅读S」</sub>
+  <br>
+  <sub>书架设计来自 <a href="https://github.com/P5UEDGK/Wenku8_Flutter">Wenku8_Flutter</a>，几何移植自 <a href="https://github.com/AzukiPann/AzukiReader">AzukiReader</a> · 详见 <a href="#致谢">致谢</a></sub>
 </div>
 
 <br>
@@ -80,6 +82,33 @@
 
 <br>
 
+## 定位：只是一个书架页的改版
+
+说清楚我做了什么、没做什么：
+
+- **只改了书架首页**（外加应用名和默认图标）。阅读器、书源、订阅、发现页、备份、数据库结构全都没动，上游更新时冲突面很小。
+- **不是 [AzukiReader](https://github.com/AzukiPann/AzukiReader) 那种大规模改动**。AzukiReader 是基于 MD3 重做的整包、按作者个人需求开发；我这里只是把它的立体书架搬进阅读R 的书架页，其余照旧。
+- **为什么这么做**：我很喜欢阅读R 的风格，功能也够用，不想为了一个书架换掉整个 App。
+- **适合谁**：想要 [Wenku8_Flutter](https://github.com/P5UEDGK/Wenku8_Flutter) 那套立体书架、又已经习惯阅读R 的人。
+- **维护**：受限于个人能力，未来很可能不再维护——阅读R 上游改动带来的适配问题不一定会跟。代码和思路都在这里，欢迎自己改、自己打包。
+
+<br>
+
+## 致谢
+
+这套书架不是我凭空想的，观感和几何都来自下面这些项目：
+
+| 项目 | 作者 | 这里用到了什么 |
+| --- | --- | --- |
+| [refgd/legado](https://github.com/refgd/legado)（阅读R） | [refgd](https://github.com/refgd) / Rimchars | 整个 App 的基线。没有它就没有这个改版，本仓库只在它的书架页上做加法 |
+| [Wenku8_Flutter](https://github.com/P5UEDGK/Wenku8_Flutter) | [P5UEDGK](https://github.com/P5UEDGK) | **立体书架这套设计的源头**：书脊并排、焦点书抽出上浮、封面朝右上铺开、书目与分组的样子都来自这里 |
+| [AzukiReader](https://github.com/AzukiPann/AzukiReader) | [AzukiPann](https://github.com/AzukiPann) | 把 Wenku8 的立体书架做成了 MD3 / Compose 版本。本改版的投影常数（0.66 / -0.30）、绘制顺序（自左向右）、循环与抽出权重都是照它移植到 Views + Canvas 的 |
+
+感谢三位作者愿意开源。如果这个改版有任何做得不好的地方，那是我移植的问题，不是上面这些项目的问题。
+
+<br>
+
 ---
 
 <sub>本仓库 fork 自 [refgd/legado](https://github.com/refgd/legado)（阅读R，基线 `accef33`）。除书架页、应用名和默认图标外没有改动上游功能，数据库结构、书源、阅读器、备份格式都保持原样。上游完整说明见 [README-UPSTREAM.md](README-UPSTREAM.md) / [English.md](English.md)。</sub>
+
