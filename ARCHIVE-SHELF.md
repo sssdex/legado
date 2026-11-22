@@ -1,6 +1,6 @@
-# 阅读S · 档案式立体书架（sssdex/legado fork）
+# 阅读S · 档案式立体书架（sssdex/legado-archive-shelf）
 
-本仓库是 **[refgd/legado](https://github.com/refgd/legado)（阅读R）** 的一个改版 fork，
+本仓库是 **[refgd/legado](https://github.com/refgd/legado)（阅读R）** 的一个改版（独立仓库，不是 GitHub fork），
 在书架页新增了「档案式书架」：上方是 3D 立体书架，下方是 `SHELF / CATALOGUE` 档案式书目，分组收进左侧抽屉。
 设置里留了开关，关掉就完全回到改动前的原版书架，两者共用同一套书籍数据。
 
@@ -132,6 +132,11 @@ gradle :app:assembleRelease -PskipVitalLint=true \
   阅读器、书源、订阅、发现页、备份格式、数据库结构（Room 版本不变）均未改。
 - 上游原版功能与本改版可以同时装在手机上，数据各自独立（`com.legado.archive` vs `io.legado.app`）。
 - 未向上游提 PR；本分支仅用于发布改版。
+
+**仓库与同步上游**
+
+- 本仓库是独立仓库 `sssdex/legado-archive-shelf`，**不是** GitHub fork（fork 不会被 GitHub 默认搜索索引，所以当初从 fork 迁了出来）。
+- 同步上游：`git remote add upstream https://github.com/refgd/legado.git`（只需一次），之后 `git fetch upstream && git merge upstream/own`（上游基线分支是 `own`）。
 
 **定位**
 
