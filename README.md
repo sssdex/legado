@@ -3,7 +3,7 @@
   <h1>阅读S · 档案式书架</h1>
   <p>给「阅读R」加了一页<b>档案式书架</b>：3D 立体书架 + 档案式书目 + 分组抽屉</p>
   <p>
-    <a href="https://github.com/sssdex/legado/releases/latest"><b>⬇ 下载 APK</b></a>
+    <a href="https://github.com/sssdex/legado-archive-shelf/releases/latest"><b>⬇ 下载 APK</b></a>
     &nbsp;·&nbsp;
     <a href="ARCHIVE-SHELF.md">改动与构建说明</a>
     &nbsp;·&nbsp;
@@ -110,5 +110,5 @@
 
 ---
 
-<sub>本仓库 fork 自 [refgd/legado](https://github.com/refgd/legado)（阅读R，基线 `accef33`）。除书架页、应用名和默认图标外没有改动上游功能，数据库结构、书源、阅读器、备份格式都保持原样。上游完整说明见 [README-UPSTREAM.md](README-UPSTREAM.md) / [English.md](English.md)。</sub>
+<sub>本仓库基于 [refgd/legado](https://github.com/refgd/legado)（阅读R，基线 `accef33`）派生，是独立仓库（不是 GitHub fork，所以能被 GitHub 默认搜索索引；同步上游见 [ARCHIVE-SHELF.md](ARCHIVE-SHELF.md)）。除书架页、应用名和默认图标外没有改动上游功能，数据库结构、书源、阅读器、备份格式都保持原样。上游完整说明见 [README-UPSTREAM.md](README-UPSTREAM.md) / [English.md](English.md)。</sub>
 
