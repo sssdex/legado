@@ -13,7 +13,7 @@
 - 分支：`archive-shelf`
 - 包名：`com.legado.archiveshelf`（独立共存，不覆盖官方阅读R / 阅读）
 - 桌面名：**阅读S**
-- 当前版本：`3.26.112206`（versionCode 10006）
+- 当前版本：`3.26.112523`（versionCode 10008）
 - 安装包：见 [Releases](../../releases)（APK 不进仓库）
 
 ---
@@ -53,6 +53,17 @@
 1. **分组抽屉在浅色+壁纸主题下透明**：抽屉面板原来直接用 `ThemeStore.backgroundColor()`（带 alpha），现在与书架纸面共用 `ArchivePalette.paper(context)`，合成到白/黑底后再上色，浅色/深色都是实心。
 2. **默认图标**：见上。
 3. **应用名**：见上。
+
+### 5. 第七版
+
+1. **全应用档案格子背景**：新增 `ArchiveGridDrawable`，把立体书架背后的 56dp 网格提升为整个 Activity 的窗口背景
+   （`BaseActivity.applyWindowBackgroundColor`）。书架、发现、书签、阅读统计、我的、设置、搜索、书籍详情、分组抽屉都是同一张纸；
+   书架自己不再重复画网格；阅读正文页（`BaseReadBookActivity`）和启动页（`WelcomeActivity`）显式关掉，壁纸主题保留壁纸。
+2. **长按开详情的封面飞行**：新增 `ArchiveCoverFlight`，长按书架抽出的那本书进详情页时，封面从书架的斜投影四边形
+   用 `Matrix.setPolyToPoly` 逐帧拉直飞到详情页封面位，书架快照同步淡出；返回时原路飞回。时间轴照 AzukiReader / Wenku8
+   （去程 120/350/580ms、回程 180/460/740/840ms，中段抬高 24dp）；系统关闭动画、封面未加载、从书目/搜索进详情时不播。
+3. **包名改为 `com.legado.archiveshelf`**：与旧的 `com.legado.archive` 并存安装、数据各自独立；旧书架可在旧包
+   「我的 → 备份与恢复」导出，再导入新包。
 
 ---
 
